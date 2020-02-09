@@ -1,6 +1,8 @@
 package com.example.calculator1;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Notification;
 import android.os.Bundle;
 
 import android.view.View;
@@ -10,12 +12,14 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 private Button btn_zero,btn_one,btn_two,btn_three,btn_four,btn_five,btn_six,btn_seven,btn_eight,btn_nine;
 private Button btn_plus, btn_minus, btn_mult, btn_divide, btn_del,btn_c, btn_square,btn_root,btn_equal,btn_dot;
-private double number,number1;
+private double number=0,number1=0;
 private TextView numberInput;
 private String delText;
 public char action;
+private String get;
 
-private boolean check=true, checkNumber=true, checkAction=true, delete=true;
+
+private boolean check=true, checkNumber=true, checkAction=true, delete=true, checkzero=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,176 +50,272 @@ private boolean check=true, checkNumber=true, checkAction=true, delete=true;
 
     }
 
+  /*  public static String removezero(String str){
+        int i = 0;
+        while (i < str.length() && str.charAt(i) == '0')
+            i++;
+        StringBuffer sb = new StringBuffer(str);
+        sb.replace(0, i, "")
+        return sb.toString();
+    }*/
     public void onClick(View view) {
+        get=numberInput.getText().toString();
         try {
-            if (numberInput.getText().toString().equals("infinity") || numberInput.getText().toString().equals("Wrong operation") || numberInput.getText().toString().equals("NaN")) {
+
+          //  if(numberInput.length()==1&&numberInput.getText().toString().charAt(0)=='0'){
+           //     checkzero=false;
+
+          //  }
+          //  if(numberInput.length()>1)
+             //   checkzero=true;
+
+
+
+
+
+
+
+           if (numberInput.getText().toString().equals("Infinity") || numberInput.getText().toString().equals("Wrong operation") || numberInput.getText().toString().equals("NaN")) {
                 numberInput.setText("Wrong operation");
                 checkNumber = false;
                 delete = false;
             }
-            switch (view.getId()) {
-                case R.id.btn_zero: {
-                    if (checkNumber)
-                        numberInput.append("0");
-                    break;
-                }
-                case R.id.btn_one: {
-                    if (checkNumber)
-                        numberInput.append("1");
-                    break;
-                }
-                case R.id.btn_two: {
-                    if (checkNumber)
-                        numberInput.append("2");
-                    break;
-                }
-                case R.id.btn_three: {
-                    if (checkNumber)
-                        numberInput.append("3");
-                    break;
-                }
-                case R.id.btn_four: {
-                    if (checkNumber)
-                        numberInput.append("4");
-                    break;
-                }
-                case R.id.btn_five: {
-                    if (checkNumber)
-                        numberInput.append("5");
-                    break;
-                }
-                case R.id.btn_six: {
-                    if (checkNumber)
-                        numberInput.append("6");
-                    break;
-                }
-                case R.id.btn_seven: {
-                    if (checkNumber)
-                        numberInput.append("7");
-                    break;
-                }
-                case R.id.btn_eight: {
-                    if (checkNumber)
-                        numberInput.append("8");
-                    break;
-                }
-                case R.id.btn_nine: {
-                    if (checkNumber)
-                        numberInput.append("9");
-                    break;
-                }
-                case R.id.btn_plus: {
-                    check = true;
-                    checkNumber = true;
-                    checkAction = true;
-                    if (numberInput.getText().toString().length() != 0) {
-                        number = Double.valueOf(numberInput.getText().toString());
-                    }
-                    numberInput.setText("");
-                    action = '+';
-                    break;
 
-                }
-                case R.id.btn_minus: {
-                    checkAction = true;
-                    check = true;
-                    checkNumber = true;
-                    if (numberInput.getText().toString().length() != 0) {
-                        number = Double.valueOf(numberInput.getText().toString());
-                    }
-                    numberInput.setText("");
-                    action = '-';
-                    break;
-                }
-                case R.id.btn_mult: {
-                    checkAction = true;
-                    check = true;
-                    checkNumber = true;
-                    checkAction = true;
-                    if (numberInput.getText().toString().length() != 0) {
-                        number = Double.valueOf(numberInput.getText().toString());
-                    }
-                    numberInput.setText("");
-                    action = '×';
-                    break;
-                }
-                case R.id.btn_divide: {
-                    check = true;
-                    checkNumber = true;
-                    if (numberInput.getText().toString().length() != 0) {
-                        number = Double.valueOf(numberInput.getText().toString());
-                    }
-                    numberInput.setText("");
-                    action = '/';
-                    break;
-                }
-                case R.id.btn_del: {
-                    if (delete) {
-                        delText = numberInput.getText().toString();
-                        if (delText.length() > 0) {
-                            delText = delText.substring(0, delText.length() - 1);
-                            numberInput.setText(delText);
+                switch (view.getId()) {
+                    case R.id.btn_zero: {
+
+                        if(numberInput.length()==1&&numberInput.getText().toString().charAt(0)=='0') {
+
+                            numberInput.setText("");
                         }
-                    }
-                    break;
-                }
-                case R.id.btn_c: {
-                    checkNumber = true;
-                    checkAction = true;
-                    check = true;
-                    delete = true;
-                    number = 0;
-                    number1 = 0;
-                    numberInput.setText("");
-                    break;
-                }
-                case R.id.btn_square: {
-                    checkNumber = true;
-                    check = true;
-                    if (numberInput.getText().toString().length() != 0) {
-                        number = Double.valueOf(numberInput.getText().toString());
-                    }
-                    numberInput.setText(String.valueOf(Math.pow(number, 2)));
 
-                    break;
-                }
-                case R.id.btn_root: {
-                    if (numberInput.getText().toString().length() != 0) {
-                        number = Double.valueOf(numberInput.getText().toString());
+                        if(checkNumber && checkzero)
+                            numberInput.append("0");
+                        break;
+
                     }
-                    if (number >= 0) {
-                        numberInput.setText(String.valueOf(Math.sqrt(number)));
-                    } else {
-                        numberInput.setText("Wrong action");
+                    case R.id.btn_one: {
+                        if(numberInput.length()==1&&numberInput.getText().toString().charAt(0)=='0') {
+
+                            numberInput.setText("");
+                        }
+
+                        if (checkNumber && checkzero)
+                            numberInput.append("1");
+                        break;
                     }
-                    break;
-                }
-                case R.id.btn_equal: {
-                    checkNumber = false;
-                    check = false;
+                    case R.id.btn_two: {
+                        if(numberInput.length()==1&&numberInput.getText().toString().charAt(0)=='0') {
+
+                            numberInput.setText("");
+                        }
+
+                        if (checkNumber && checkzero)
+                            numberInput.append("2");
+                        break;
+                    }
+                    case R.id.btn_three: {
+                        if(numberInput.length()==1&&numberInput.getText().toString().charAt(0)=='0') {
+
+                            numberInput.setText("");
+                        }
+
+                        if (checkNumber && checkzero)
+                            numberInput.append("3");
+                        break;
+                    }
+                    case R.id.btn_four: {
+                        if(numberInput.length()==1&&numberInput.getText().toString().charAt(0)=='0') {
+
+                            numberInput.setText("");
+                        }
+
+                        if (checkNumber && checkzero)
+                            numberInput.append("4");
+                        break;
+                    }
+                    case R.id.btn_five: {
+                        if(numberInput.length()==1&&numberInput.getText().toString().charAt(0)=='0') {
+
+                            numberInput.setText("");
+                        }
+
+                        if (checkNumber && checkzero)
+                            numberInput.append("5");
+                        break;
+                    }
+                    case R.id.btn_six: {
+                        if(numberInput.length()==1&&numberInput.getText().toString().charAt(0)=='0') {
+
+                            numberInput.setText("");
+                        }
+
+                        if (checkNumber && checkzero)
+                            numberInput.append("6");
+                        break;
+                    }
+                    case R.id.btn_seven: {
+                        if(numberInput.length()==1&&numberInput.getText().toString().charAt(0)=='0') {
+
+                            numberInput.setText("");
+                        }
+
+                        if (checkNumber && checkzero)
+                            numberInput.append("7");
+                        break;
+                    }
+                    case R.id.btn_eight: {
+                        if(numberInput.length()==1&&numberInput.getText().toString().charAt(0)=='0') {
+
+                            numberInput.setText("");
+                        }
+
+                        if (checkNumber && checkzero)
+                            numberInput.append("8");
+                        break;
+                    }
+                    case R.id.btn_nine: {
+                        if(numberInput.length()==1&&numberInput.getText().toString().charAt(0)=='0') {
+
+                            numberInput.setText("");
+                        }
+
+                        if (checkNumber && checkzero)
+                            numberInput.append("9");
+                        break;
+                    }
+                    case R.id.btn_plus: {
+                        check = true;
+                        checkNumber = true;
+                        checkAction = true;
+                        if (numberInput.getText().toString().length() != 0) {
+                            number = Double.valueOf(numberInput.getText().toString());
+                        }
+                        numberInput.setText("");
+                        action = '+';
+                        break;
+
+                    }
+                    case R.id.btn_minus: {
+                        checkAction = true;
+                        check = true;
+                        checkNumber = true;
+                        if (numberInput.getText().toString().length() != 0) {
+                            number = Double.valueOf(numberInput.getText().toString());
+                        }
+                        numberInput.setText("");
+                        action = '-';
+                        break;
+                    }
+                    case R.id.btn_mult: {
+
+                        check = true;
+                        checkNumber = true;
+                        checkAction = true;
+                        if (numberInput.getText().toString().length() != 0) {
+                            number = Double.valueOf(numberInput.getText().toString());
+                        }
+                        numberInput.setText("");
+                        action = '×';
+                        break;
+                    }
+                    case R.id.btn_divide: {
+                        check = true;
+                        checkNumber = true;
+                        checkAction = true;
+                        if (numberInput.getText().toString().length() != 0) {
+                            number = Double.valueOf(numberInput.getText().toString());
+                        }
+
+                        numberInput.setText("");
+                        action = '/';
+                        break;
+                    }
+                    case R.id.btn_del: {
+                        if (delete) {
+                            delText = numberInput.getText().toString();
+                            if (delText.length() > 0) {
+                                delText = delText.substring(0, delText.length() - 1);
+                                numberInput.setText(delText);
+                            }
+                        }
+                        break;
+                    }
+                    case R.id.btn_c: {
+                        checkNumber = true;
+                        checkAction = true;
+                        check = true;
+                        delete = true;
+                        number = 0;
+                        number1 = 0;
+                        numberInput.setText("");
+                        break;
+                    }
+                    case R.id.btn_square: {
+                        checkNumber = true;
+                        check = true;
+                        if (numberInput.getText().toString().length() != 0) {
+                            number = Double.valueOf(numberInput.getText().toString());
+                        }
+                        numberInput.setText(String.valueOf(Math.pow(number, 2)));
+
+                        break;
+                    }
+                    case R.id.btn_root: {
+                        if (numberInput.getText().toString().length() != 0) {
+                            number = Double.valueOf(numberInput.getText().toString());
+                        }
+                        if (number >= 0) {
+                            numberInput.setText(String.valueOf(Math.sqrt(number)));
+                        } else {
+                            numberInput.setText("Wrong action");
+                        }
+                        break;
+                    }
+                    case R.id.btn_equal: {
+                        checkNumber = false;
+                        check = false;
 
 
-                            number1 = Double.valueOf(numberInput.getText().toString());
+
+                        number1 = Double.valueOf(numberInput.getText().toString());
+                        if (number1 == 0&& action == '/') {
+                            numberInput.setText("Cannot divide by 0");
+
+                        } else {
                             numberInput.setText(String.valueOf(action(number, number1)));
-
                             number = number1;
                             checkAction = false;
-                       
-                    break;
-                }
-                case R.id.btn_dot: {
-                    if (check && checkNumber) {
-                        numberInput.setText(numberInput.getText() + ".");
-                        check = false;
+
+                            break;
+                        }
                     }
-                    break;
+
+                    case R.id.btn_dot: {
+
+                        if(numberInput.length()==1&&numberInput.getText().toString().charAt(0)=='0') {
+
+                            numberInput.setText("");
+                        }
+
+                        if (check && checkNumber) {
+
+                            numberInput.setText(numberInput.getText() + "0.");
+
+                            check = false;
+                            checkzero = true;
+                        }
+                        break;
+                    }
                 }
-            }
+
         } catch (Exception e) {
             numberInput.setText("Wrong operation");
         }
     }
+
     public double action(double number, double number1){
+
         switch(action){
             case '+':
                 return number + number1;
