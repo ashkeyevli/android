@@ -16,7 +16,7 @@
         <item name="android:textSize">32sp</item>
         <item name="android:background">#434343</item>
         <item name="android:textColor">#FFFFFF</item>
-
+        <item name="android:fontFamily">Google Fonts-Rubik Regular</item>
     </style>
     <style name="more_button">
         <item name="android:layout_width">0dp</item>
@@ -26,9 +26,45 @@
         <item name="android:textSize">18sp</item>
         <item name="android:background">#636363</item>
         <item name="android:onClick">onClick</item>
-
+        <item name="android:fontFamily">Google Fonts-Rubik Regular</item>
 
 
     </style>
 
+    <style name="calc_button1">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:onClick">onClick</item>
+        <item name="android:fontFamily">Google Fonts-Rubik Regular</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">#434343</item>
+        <item name="android:textColor">#FFFFFF</item>
+
+    </style>
+    <style name="more_button1">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">#636363</item>
+        <item name="android:onClick">onClick</item>
+        <item name="android:fontFamily">Google Fonts-Rubik Regular</item>
+
+
+    </style>
+    <style name="land_button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">#107C61</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">#1DE9B6</item>
+        <item name="android:onClick">onClick</item>
+        <item name="android:textAllCaps">false</item>
+
+        <item name="android:fontFamily">Google Fonts-Rubik Regular</item>
+
+    </style>
 </resources>
