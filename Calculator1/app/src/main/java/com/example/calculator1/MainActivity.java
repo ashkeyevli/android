@@ -18,12 +18,12 @@ private double number=0,number1=0;
 private TextView numberInput;
 private String delText;
 public char action;
-private String get;
-private double od;
-private int oi;
 
 
-private boolean check=true, checkNumber=true, checkAction=true, delete=true, checkzero=true, notRoot=false;
+
+
+
+private boolean check=true, checkNumber=true, checkAction=true, delete=true, checkzero=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,15 +78,12 @@ private boolean check=true, checkNumber=true, checkAction=true, delete=true, che
     public void onClick(View view) {
 
         try {
-
-
            if (numberInput.getText().toString().equals("Infinity") || numberInput.getText().toString().equals("Wrong operation") || numberInput.getText().toString().equals("NaN")) {
                 numberInput.setText("Wrong operation");
                 checkNumber = false;
                 delete = false;
             }
-
-                switch (view.getId()) {
+               switch (view.getId()) {
                     case R.id.btn_zero: {
 
                         if (numberInput.length() == 1 && numberInput.getText().toString().charAt(0) == '0') {
@@ -290,39 +287,42 @@ private boolean check=true, checkNumber=true, checkAction=true, delete=true, che
                         }
                         break;
                     }
+
                     case R.id.btn_equal: {
+
                         checkNumber = false;
+
                         check = false;
-
-
                         number1 = Double.valueOf(numberInput.getText().toString());
                         if (number1 == 0 && action == '/') {
                             numberInput.setText("Cannot divide by 0");
                             delete=false;
 
-                        } else {
+                        }
+                        else if(number1>323&&action=='p'){
+                            numberInput.setText("Too big Number for power operation");
+                            delete=false;
+                        }
+                        else {
                             numberInput.setText(String.valueOf(action(number, number1)));
                             number = number1;
                             checkAction = false;
-
                             break;
                         }
+
+
                     }
 
                     case R.id.btn_dot: {
-
-
-
                         if (check && checkNumber) {
-
-
                             numberInput.setText(numberInput.getText() + ".");
-
                             check = false;
                             checkzero = true;
                         }
                         break;
                     }
+
+
                     case R.id.btn_percent: {
                         check = true;
                         checkNumber = true;
@@ -369,6 +369,7 @@ private boolean check=true, checkNumber=true, checkAction=true, delete=true, che
                         }
                         if (number1 == 90) {
                             numberInput.setText("not defined");
+                            checkNumber=false;
                             delete=false;
                         } else {
                             numberInput.setText(String.valueOf(Math.tan(Math.toRadians(number1))));
@@ -384,6 +385,7 @@ private boolean check=true, checkNumber=true, checkAction=true, delete=true, che
                         if (number1 == 0) {
                             numberInput.setText("not defined");
                             delete=false;
+                            checkNumber=false;
                         } else {
                             numberInput.setText(String.valueOf(1 / (Math.tan(Math.toRadians(number1)))));
                         }
@@ -398,6 +400,7 @@ private boolean check=true, checkNumber=true, checkAction=true, delete=true, che
                         if(number1<1){
                             numberInput.setText("Not a number");
                             delete=false;
+                            checkNumber=false;
                         }
                         else {
 
@@ -415,6 +418,8 @@ private boolean check=true, checkNumber=true, checkAction=true, delete=true, che
                         if(number1<1){
                             numberInput.setText("Not a number");
                             delete=false;
+                            checkNumber=false;
+
                         }
                         else {
 
@@ -429,11 +434,21 @@ private boolean check=true, checkNumber=true, checkAction=true, delete=true, che
                         if (numberInput.getText().toString().length() != 0) {
                             number1 = Double.valueOf(numberInput.getText().toString());
                         }
-                        int i,fact=1;
-                        for(i=1;i<=number1;i++){
-                            fact=fact*i;
-                        }
+                        int i;
+                        long fact=1;
+                        if(number1<20) {
+                            for (i = 1; i <= number1; i++) {
+                                fact = fact * i;
+                            }
+
                         numberInput.setText(String.valueOf(fact));
+                        }
+                        else{
+                            numberInput.setText("too big number for factorial");
+                        delete=false;
+                        checkAction=false;
+                       checkNumber=false;
+                        check=false;}
                         break;
 
                     }
@@ -477,6 +492,8 @@ private boolean check=true, checkNumber=true, checkAction=true, delete=true, che
                 return number / number1;
             case 'p':
                 return Math.pow(number,number1);
+
+
             case 's': {
                 double dres = Math.pow(number, 1.0 / number1);
 
@@ -514,13 +531,13 @@ private boolean check=true, checkNumber=true, checkAction=true, delete=true, che
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState){
         super.onRestoreInstanceState(savedInstanceState);
         savedInstanceState.getString("numberInput");
-        savedInstanceState.getString("number");
-        savedInstanceState.getString("number1");
-        savedInstanceState.getString("checkNumber");
-        savedInstanceState.getString("check");
-        savedInstanceState.getString("action");
-        savedInstanceState.getString("delete");
-        savedInstanceState.getString("checkAction");
+        savedInstanceState.getDouble("number");
+        savedInstanceState.getDouble("number1");
+        savedInstanceState.getBoolean("checkNumber");
+        savedInstanceState.getBoolean("check");
+        savedInstanceState.getChar("action");
+        savedInstanceState.getBoolean("delete");
+        savedInstanceState.getBoolean("checkAction");
 
 
 
