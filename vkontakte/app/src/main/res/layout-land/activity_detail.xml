@@ -9,206 +9,205 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/rellay_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/rellay_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_proPic_detail"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_margin="10dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/vkpj" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/iv_proPic_detail"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="Roboto"
+                    android:text="Али Ашкеев"
+                    android:textColor="#5C7490"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_time_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="Roboto"
+                    android:text="15 минут назад"
+                    android:textColor="#939699"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+
+            android:id="@+id/tv_status_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rellay_detail"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="15dp"
+            android:text="My test app"
+            android:textColor="#242424"
+            android:textColorLink="#03A9F4"
+            android:textSize="14sp" />
 
         <ImageView
-            android:id="@+id/iv_proPic_detail"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_margin="10dp"
+            android:id="@+id/iv_postPic_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_status_detail"
+            android:layout_marginTop="5dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/vkpj" />
-
+            android:src="@drawable/first"
+            android:visibility="visible" />
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@id/iv_proPic_detail"
-            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_name_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="Roboto"
-                android:text="Али Ашкеев"
-                android:textColor="#5C7490"
-                android:textSize="17sp" />
-
-            <TextView
-                android:id="@+id/tv_time_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="Roboto"
-                android:text="15 минут назад"
-                android:textColor="#939699"
-                android:textSize="13sp" />
-        </LinearLayout>
-
-    </RelativeLayout>
-
-    <TextView
-
-        android:id="@+id/tv_status_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rellay_detail"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginTop="15dp"
-        android:text="My test app"
-        android:textColor="#242424"
-        android:textColorLink="#03A9F4"
-        android:textSize="14sp" />
-
-    <ImageView
-        android:id="@+id/iv_postPic_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_status_detail"
-        android:layout_marginTop="5dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:src="@drawable/first"
-        android:visibility="visible" />
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_below="@id/iv_postPic_detail">
-
-        <RelativeLayout
-            android:layout_width="290dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
-
-                <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_marginLeft="10dp"
-                    android:adjustViewBounds="true"
-
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/like" />
-
-                <TextView
-                    android:id="@+id/tv_like_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="7dp"
-                    android:text="18"
-                    android:textColor="#939699"
-                    android:textSize="16sp" />
-
-
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="290dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
-
-                <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_marginLeft="10dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/coment" />
-
-                <TextView
-                    android:id="@+id/tv_comment_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="7dp"
-                    android:text="2"
-                    android:textColor="#939699"
-                    android:textSize="16sp" />
-
-
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="290dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
-
-                <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_marginLeft="10dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/repost" />
-
-                <TextView
-                    android:id="@+id/tv_repost_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="7dp"
-                    android:text="2"
-                    android:textColor="#939699"
-                    android:textSize="16sp" />
-
-
-            </LinearLayout>
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="45dp"
+            android:layout_below="@id/iv_postPic_detail">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="50dp">
+            <RelativeLayout
+                android:layout_width="290dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
-                <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_marginLeft="70dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/view" />
-
-                <TextView
-                    android:id="@+id/tv_view_detail"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="7dp"
-                    android:text="140"
-                    android:textColor="#939699"
-                    android:textSize="16sp" />
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:id="@+id/likeBtn"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginLeft="10dp"
+
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/like" />
+
+                    <TextView
+                        android:id="@+id/tv_like_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dp"
+                        android:text="18"
+                        android:textColor="#939699"
+                        android:textSize="16sp" />
 
 
-            </LinearLayout>
-        </RelativeLayout>
-    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="290dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginLeft="10dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/coment" />
+
+                    <TextView
+                        android:id="@+id/tv_comment_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dp"
+                        android:text="2"
+                        android:textColor="#939699"
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="290dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginLeft="10dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/repost" />
+
+                    <TextView
+                        android:id="@+id/tv_repost_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dp"
+                        android:text="2"
+                        android:textColor="#939699"
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginLeft="50dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/view" />
+
+                    <TextView
+                        android:id="@+id/tv_view_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dp"
+                        android:text="140"
+                        android:textColor="#939699"
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

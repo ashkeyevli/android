@@ -11,9 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-private Button btn_zero,btn_one,btn_two,btn_three,btn_four,btn_five,btn_six,btn_seven,btn_eight,btn_nine;
-private Button btn_plus, btn_minus, btn_mult, btn_divide, btn_del,btn_c, btn_square,btn_root,btn_equal,btn_dot;
-private Button btn_percent, btn_sin,btn_cos,btn_tan,btn_cot, btn_ln,btn_log,btn_fact,btn_power,btn_powersqrt;
+    private Button btn_zero,btn_one,btn_two,btn_three,btn_four,btn_five,btn_six,btn_seven,btn_eight,btn_nine;
+    private Button btn_plus, btn_minus, btn_mult, btn_divide, btn_del,btn_c, btn_square,btn_root,btn_equal,btn_dot;
+    private Button btn_percent, btn_sin,btn_cos,btn_tan,btn_cot, btn_ln,btn_log,btn_fact,btn_power,btn_powersqrt;
 private double number=0,number1=0;
 private TextView numberInput;
 private String delText;

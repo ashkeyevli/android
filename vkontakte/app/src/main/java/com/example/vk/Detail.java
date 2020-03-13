@@ -1,17 +1,13 @@
 package com.example.vk;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Display;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Detail extends AppCompatActivity {
-
+    ImageView like;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +15,7 @@ public class Detail extends AppCompatActivity {
 
         ImageView proPic=findViewById(R.id.iv_proPic_detail);
         ImageView postPic=findViewById(R.id.iv_postPic_detail);
+        like=findViewById(R.id.likeBtn);
 
         TextView tvNameDetail=findViewById(R.id.tv_name_detail);
         TextView tvTimeDetail=findViewById(R.id.tv_time_detail);
@@ -27,34 +24,31 @@ public class Detail extends AppCompatActivity {
         TextView tvCommentDetail=findViewById(R.id.tv_comment_detail);
         TextView tvRepostDetail=findViewById(R.id.tv_repost_detail);
         TextView tvViewDetail=findViewById(R.id.tv_view_detail);
+        final ModelFeed modelFeed=(ModelFeed)getIntent().getSerializableExtra("news");
 
-
-
-        Intent intent =getIntent();
-        String name=intent.getStringExtra("name");
-        tvNameDetail.setText(name);
-        String time=intent.getStringExtra("time");
-        tvTimeDetail.setText(time);
-        CharSequence status=intent.getCharSequenceExtra("status");
-        tvStatusDetail.setText(status);
-        String like=intent.getStringExtra("like");
-        tvLikeDetail.setText(like);
-        String comment=intent.getStringExtra("comment");
-        tvCommentDetail.setText(comment);
-        String repost=intent.getStringExtra("repost");
-        tvRepostDetail.setText(repost);
-        String view =intent.getStringExtra("view");
-        tvViewDetail.setText(view);
-        Integer key=intent.getIntExtra("proPic",0);
-              Glide.with(this).load(key).into(proPic);
-        Integer key1=intent.getIntExtra("postPic",0);
-        Glide.with(this).load(key1).into(postPic);
-
-
-
+        proPic.setImageResource(modelFeed.getPropic());
+        postPic.setImageResource(modelFeed.getPostpic());
+        tvNameDetail.setText(modelFeed.getName());
+        tvTimeDetail.setText(modelFeed.getTime());
+        tvStatusDetail.setText(modelFeed.getStatus());
+        tvLikeDetail.setText(modelFeed.getLikes());
+        tvCommentDetail.setText(modelFeed.getCommments());
+        tvRepostDetail.setText(modelFeed.getRepost());
+        tvViewDetail.setText(modelFeed.getView());
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(modelFeed.getLikeBtn()==R.drawable.like){
+                    like.setImageResource(R.drawable.liked);
+                    modelFeed.setLikeBtn(R.drawable.liked);
+                }
+                else{
+                    like.setImageResource(R.drawable.like);
+                    modelFeed.setLikeBtn(R.drawable.like);
+                }
+            }
+        });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
     }
 }

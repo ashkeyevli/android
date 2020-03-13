@@ -1,16 +1,24 @@
 package com.example.vk;
-
-import android.widget.ImageView;
-
-public class ModelFeed {
-    int id,postpic,propic;
-    String name,time, likes, commments,view,repost;
-
-    CharSequence status;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
+public class ModelFeed implements Serializable {
+    public static List<ModelFeed> modelFeedArrayList=new ArrayList<>();
+    private int id,postpic,propic;
+    private String name,time, likes, commments,view,repost;
+    private boolean isLiked;
+    private int likeBtn;
+    private   String status;
 
-    public ModelFeed(int id, String view,String repost, String likes, String commments, int propic, int postpic, String name, String time, CharSequence status) {
+
+    public boolean isLiked(){return isLiked;}
+    public void setLiked(boolean liked){
+        isLiked=liked;
+    }
+
+    public ModelFeed(int id, String view,String repost, String likes, String commments, int propic, int postpic, String name, String time, String status) {
         this.id = id;
         this.likes = likes;
         this.commments = commments;
@@ -21,6 +29,8 @@ public class ModelFeed {
         this.status = status;
         this.view = view;
         this.repost = repost;
+        this.likeBtn=R.drawable.like;
+        this.isLiked=false;
     }
 
     public String getView() {
@@ -46,6 +56,9 @@ public class ModelFeed {
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getLikeBtn(){ return likeBtn;}
+    public void setLikeBtn(int likeBtn){this.likeBtn=likeBtn;}
 
     public String  getLikes() {
         return likes;
@@ -99,7 +112,8 @@ public class ModelFeed {
         return status;
     }
 
-    public void setStatus(CharSequence status) {
+    public void setStatus(String status) {
         this.status = status;
     }
+
 }
