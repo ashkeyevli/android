@@ -38,10 +38,10 @@ BottomNavigationView bottomNavigationView;
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.feed:
-                        pager.setCurrentItem(0);
+                        pager.setCurrentItem(0,false);
                         break;
                     case R.id.like:
-                        pager.setCurrentItem(1);
+                        pager.setCurrentItem(1,false);
                         break;
                 }
 

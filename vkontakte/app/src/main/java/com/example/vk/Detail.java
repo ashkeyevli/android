@@ -50,5 +50,6 @@ public class Detail extends AppCompatActivity {
         });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Детали");
     }
 }

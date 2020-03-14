@@ -63,19 +63,19 @@ public class FragementFeed extends Fragment {
 
     private List<ModelFeed> newsGenerator() {
         List<ModelFeed> items=new ArrayList<>();
-        ModelFeed feed1= new ModelFeed(4,"100", "2", "23", "6", R.drawable.prof4, R.drawable.content4, "Бизнес Тренды" , "час назад", getString(R.string.content4));
+        ModelFeed feed1= new ModelFeed(1,"100", "2", "23", "6", R.drawable.prof4, R.drawable.content4, "Бизнес Тренды" , "час назад", getString(R.string.content4));
         items.add(feed1);
-        ModelFeed feed2= new ModelFeed(5,"104", "2", "21", "2", R.drawable.prof5, R.drawable.content5, "Александр Романов" , "два часа назад",getString((R.string.content5)));
+        ModelFeed feed2= new ModelFeed(2,"104", "2", "21", "2", R.drawable.prof5, R.drawable.content5, "Александр Романов" , "два часа назад",getString((R.string.content5)));
         items.add(feed2);
-        ModelFeed feed3= new ModelFeed(6,"1344", "23", "212", "24", R.drawable.prof6, R.drawable.content6, "НЛП-Клуб online" , "два часа назад",getString((R.string.content6)));
+        ModelFeed feed3= new ModelFeed(3,"1344", "23", "212", "24", R.drawable.prof6, R.drawable.content6, "НЛП-Клуб online" , "два часа назад",getString((R.string.content6)));
         items.add(feed3);
-        ModelFeed feed4= new ModelFeed(7,"144", "3", "12", "14", R.drawable.prof7, R.drawable.content7, "Идеи для бизнеса | Стартапы" , "три часа назад",getString((R.string.content7)));
+        ModelFeed feed4= new ModelFeed(4,"144", "3", "12", "14", R.drawable.prof7, R.drawable.content7, "Идеи для бизнеса | Стартапы" , "три часа назад",getString((R.string.content7)));
         items.add(feed4);
-        ModelFeed feed5=new ModelFeed(1,"120", "300", "140", "230", R.drawable.vkpj, R.drawable.first,"Али Ашкеев", "сейчас","Работает!!!" );
+        ModelFeed feed5=new ModelFeed(5,"120", "300", "140", "230", R.drawable.vkpj, R.drawable.first,"Али Ашкеев", "сейчас","Работает!!!" );
         items.add(feed5);
-        ModelFeed feed6=new ModelFeed(2,"130", "3", "13", "2", R.drawable.prof2, R.drawable.content2,"Dr DW | WINDOWS | ANDROID | IOS | APPLE", "час назад","Прежде чем лопать эти пузырики, вспомни, что воздух внутри этих пузыриков прибыл к тебе из Китая." );
+        ModelFeed feed6=new ModelFeed(6,"130", "3", "13", "2", R.drawable.prof2, R.drawable.content2,"Dr DW | WINDOWS | ANDROID | IOS | APPLE", "час назад","Прежде чем лопать эти пузырики, вспомни, что воздух внутри этих пузыриков прибыл к тебе из Китая." );
         items.add(feed6);
-        ModelFeed feed7=new ModelFeed(3,"101", "3", "24", "7", R.drawable.prof3, R.drawable.content3, "Way" , "час назад", "An asphalt road through a dark forest");
+        ModelFeed feed7=new ModelFeed(7,"101", "3", "24", "7", R.drawable.prof3, R.drawable.content3, "Way" , "час назад", "An asphalt road through a dark forest");
         items.add(feed7);
         ModelFeed feed8=new ModelFeed(8,"14", "1", "10", "1", R.drawable.prof8, R.drawable.content8, "TED RUS - ted talks на русском" , "Вчера в 15:09",getString((R.string.content8)));
         items.add(feed8);
