@@ -5,13 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.RequestManager;
-
 import java.util.List;
 
 public class AdapterLike  extends RecyclerView.Adapter<AdapterLike.MyViewHolder>{
@@ -58,6 +55,7 @@ public class AdapterLike  extends RecyclerView.Adapter<AdapterLike.MyViewHolder>
             holder.iv_postPic.setImageResource(modelfeed.getPostpic());
         }
 
+
         holder.iv_like.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -66,6 +64,8 @@ public class AdapterLike  extends RecyclerView.Adapter<AdapterLike.MyViewHolder>
 
              if(fragmentLikeListener!=null)
                  fragmentLikeListener.removeItemLike(modelfeed);
+
+
             }
         });
 
@@ -77,6 +77,15 @@ public class AdapterLike  extends RecyclerView.Adapter<AdapterLike.MyViewHolder>
                     listener.ItemClick(position,modelfeed);
             }
         });
+        if (modelfeed.isLiked()==true){
+
+            holder.iv_like.setImageResource(R.drawable.liked);
+
+        }else
+
+            holder.iv_like.setImageResource(R.drawable.like);
+
+
     }
 
 
@@ -117,6 +126,7 @@ public class AdapterLike  extends RecyclerView.Adapter<AdapterLike.MyViewHolder>
 
     interface ItemClickListener{
         void ItemClick(int position, ModelFeed item);
+        void likeClick(int position, ModelFeed item);
     }
     public interface FragmentLikeListener{
         void removeItemLike(ModelFeed feed);

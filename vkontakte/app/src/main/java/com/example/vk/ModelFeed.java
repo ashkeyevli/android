@@ -8,7 +8,7 @@ public class ModelFeed implements Serializable {
     public static List<ModelFeed> modelFeedArrayList=new ArrayList<>();
     private int id,postpic,propic;
     private String name,time, likes, commments,view,repost;
-    private boolean isLiked;
+    private boolean isLiked=false;
     private int likeBtn;
     private   String status;
 
@@ -29,8 +29,8 @@ public class ModelFeed implements Serializable {
         this.status = status;
         this.view = view;
         this.repost = repost;
-        this.likeBtn=R.drawable.like;
-        this.isLiked=false;
+
+
     }
 
     public String getView() {
@@ -57,8 +57,7 @@ public class ModelFeed implements Serializable {
         this.id = id;
     }
 
-    public int getLikeBtn(){ return likeBtn;}
-    public void setLikeBtn(int likeBtn){this.likeBtn=likeBtn;}
+
 
     public String  getLikes() {
         return likes;

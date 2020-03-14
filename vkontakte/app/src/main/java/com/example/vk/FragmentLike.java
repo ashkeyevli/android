@@ -1,4 +1,6 @@
 package com.example.vk;
+import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,6 +20,7 @@ public class FragmentLike extends Fragment {
     private AdapterLike adapterLike;
     private AdapterLike.ItemClickListener listener;
     private AdapterLike.FragmentLikeListener fragmentLikeListener;
+    boolean isLiked;
 
 
     @Nullable
@@ -35,7 +38,24 @@ public class FragmentLike extends Fragment {
             public void ItemClick(int position, ModelFeed item) {
                 Intent intent = new Intent(getActivity(), Detail.class);
                 intent.putExtra("news", item);
+                intent.putExtra("like",item.isLiked());
                 startActivity(intent);
+            }
+            @Override
+            public void likeClick(int position, ModelFeed item) {
+                isLiked=item.isLiked();
+                if (isLiked==false){
+                    item.setLiked(true);
+                    item.setLikes(String.valueOf(Integer.valueOf(item.getLikes())+1));
+                   isLiked=true;
+                }else {
+                    item.setLiked(false);
+                    item.setLikes(String.valueOf(Integer.valueOf(item.getLikes())-1));
+                    isLiked=false;
+                }
+
+                adapterLike.notifyItemChanged(position);
+
             }
         };
 
@@ -53,6 +73,7 @@ public class FragmentLike extends Fragment {
 
     public void saveNews(ModelFeed modelFeed){
         modelFeedArrayList.add(modelFeed);
+
         recyclerView.getAdapter().notifyItemInserted( modelFeedArrayList.size()-1);
     }
     public void removeNews(ModelFeed modelFeed){
@@ -69,4 +90,12 @@ public class FragmentLike extends Fragment {
         this.removeNews(modelFeed);
         adapterLike.notifyItemRemoved(n);
     }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+
+    }
+
 }

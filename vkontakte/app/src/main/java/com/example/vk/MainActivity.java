@@ -39,9 +39,12 @@ BottomNavigationView bottomNavigationView;
                 switch (item.getItemId()){
                     case R.id.feed:
                         pager.setCurrentItem(0,false);
+                        getSupportActionBar().setTitle("Новости");
+
                         break;
                     case R.id.like:
                         pager.setCurrentItem(1,false);
+                        getSupportActionBar().setTitle("Закладки");
                         break;
                 }
 

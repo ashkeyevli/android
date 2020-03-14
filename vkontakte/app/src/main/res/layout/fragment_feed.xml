@@ -79,23 +79,25 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/stories"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-
+            android:layout_height="96dp"
             android:layout_below="@+id/top"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
             android:background="@color/white"
-            android:gravity="center_vertical"
 
-            android:orientation="horizontal">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
 
             <ImageView
                 android:id="@+id/iv_stories1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="16dp"
+                android:layout_width="60dp"
+                android:layout_height="57dp"
+                android:layout_marginStart="10dp"
                 android:adjustViewBounds="true"
 
 
@@ -108,9 +110,9 @@
 
             <ImageView
                 android:id="@+id/iv_stories2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="12dp"
+                android:layout_width="60dp"
+                android:layout_height="57dp"
+                android:layout_marginStart="4dp"
                 android:adjustViewBounds="true"
 
                 android:scaleType="fitCenter"
@@ -118,12 +120,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_stories4"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.2" />
+                app:layout_constraintVertical_bias="0.078" />
 
             <ImageView
                 android:id="@+id/iv_stories3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="57dp"
                 android:layout_marginStart="8dp"
                 android:adjustViewBounds="true"
 
@@ -136,8 +138,8 @@
 
             <ImageView
                 android:id="@+id/iv_stories4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="57dp"
                 android:layout_marginStart="8dp"
                 android:adjustViewBounds="true"
 
@@ -152,8 +154,8 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="52dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="57dp"
                 android:text="Али"
 
                 android:textColor="#939699"
@@ -165,40 +167,45 @@
                 android:id="@+id/stories3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="54dp"
 
-                android:layout_marginTop="52dp"
                 android:text="Видео..."
-
                 android:textColor="#7A91AD"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/iv_stories4"
-                app:layout_constraintTop_toTopOf="@+id/iv_stories4" />
+                app:layout_constraintTop_toTopOf="@+id/iv_stories4"
+                app:layout_constraintVertical_bias="0.285" />
 
             <TextView
                 android:id="@+id/stories2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:layout_marginTop="52dp"
-                android:text="wasted"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="53dp"
 
+                android:text="wasted"
                 android:textColor="#7A91AD"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/iv_stories3"
-                app:layout_constraintTop_toTopOf="@+id/iv_stories3" />
+                app:layout_constraintTop_toTopOf="@+id/iv_stories3"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/stories4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:layout_marginTop="52dp"
-                android:text="Кладб..."
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="54dp"
 
+                android:text="Кладб..."
                 android:textColor="#7A91AD"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/iv_stories2"
-                app:layout_constraintTop_toTopOf="@+id/iv_stories2" />
+                app:layout_constraintTop_toTopOf="@+id/iv_stories2"
+                app:layout_constraintVertical_bias="0.111" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
